@@ -124,6 +124,47 @@
           <div><button class="weui-btn_cell weui-btn_cell-primary" @click="handleSearch">查询</button></div>
         </div>
       </div>
+      <div style="background-color:#6aaebe;margin-top:30px;">
+        <div style="font-size:30px;text-align:center">在租仓库展示</div>
+        <div class="weui-cells weui-cells_after-title">
+          <div class="weui-cell">
+            <div class="weui-cell__bd">标题文字</div>
+            <div class="weui-cell__ft">说明文字</div>
+          </div>
+          <div class="weui-cell">
+            <div class="weui-cell__bd">标题文字</div>
+            <div class="weui-cell__ft">说明文字</div>
+          </div>
+          <div class="weui-cell">
+            <div class="weui-cell__bd">标题文字</div>
+            <div class="weui-cell__ft">说明文字</div>
+          </div>
+          <div class="weui-cell" >
+            <img src="/static/images/qq.png" style="width:80px;height:80px" @click="previewImg(index)">
+            <img src="/static/images/qq.png" style="width:80px;height:80px">
+            <img src="/static/images/qq.png" style="width:80px;height:80px">
+            <img src="/static/images/qq.png" style="width:80px;height:80px">
+          </div>
+        </div>
+        <div class="weui-cells weui-cells_after-title">
+          <div class="weui-cell">
+            <div class="weui-cell__bd">标题文字</div>
+            <div class="weui-cell__ft">说明文字</div>
+          </div>
+        </div>
+        <div class="weui-cells weui-cells_after-title">
+          <div class="weui-cell">
+            <div class="weui-cell__bd">标题文字</div>
+            <div class="weui-cell__ft">说明文字</div>
+          </div>
+        </div>
+        <div class="weui-cells weui-cells_after-title">
+          <div class="weui-cell">
+            <div class="weui-cell__bd">标题文字</div>
+            <div class="weui-cell__ft">说明文字</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -163,6 +204,7 @@ export default {
           "/static/images/blue.png"
       }
     ],
+    im:['/static/images/green.png','/static/images/qq.png','/static/images/qq.png','/static/images/qq.png'],
       tabs: [
         {
           name: "仓库登记",
@@ -177,6 +219,10 @@ export default {
       ],
       activeIndex: 0,
     }
+  },
+  mounted(){
+    this.globalData.openId = "hah"
+    console.log(this.globalData.openId)
   },
   methods:{
     tabClick(e) {
@@ -205,7 +251,21 @@ export default {
     },
     handleSearch(){
       mpvue.navigateTo({url: '/pages/searchResult/main'})
-    }
+    },
+    previewImg(index){
+      let that = this;
+      wx.previewImage({
+        current:that.im[1],
+        urls:that.im
+      });
+      console.log(index)
+    },
+  },
+  onPullDownRefresh () {
+      console.log('下拉刷新')
+  },
+  onReachBottom () {
+      console.log('触底了')
   },
   computed: {
       navbarSliderClass() {

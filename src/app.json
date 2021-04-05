@@ -8,7 +8,8 @@
     "pages/goods/main",
     "pages/successPage/main",
     "pages/user/main",
-    "pages/searchResult/main"
+    "pages/searchResult/main",
+    "pages/release/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

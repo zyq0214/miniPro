@@ -13,7 +13,7 @@
     <div :hidden="activeIndex != 0">
       <div class="weui-cells weui-cells_form">
         <div class="weui-cell weui-cell_active">
-          <div class="weui-cell__hd"><label class="weui-label">真实姓名</label></div>
+          <div class="weui-cell__hd"><label class="weui-label">持有人姓名</label></div>
           <div class="weui-cell__bd weui-flex">
               <input 
                   class="weui-input" 
@@ -35,7 +35,18 @@
           </div>
         </div>
         <div class="weui-cell weui-cell_active">
-          <div class="weui-cell__hd"><label class="weui-label">货车容量</label></div>
+          <div class="weui-cell__hd"><label class="weui-label">货车高度</label></div>
+          <div class="weui-cell__bd weui-flex">
+              <input 
+                  class="weui-input" 
+                  type="text" 
+                  placeholder="请输入货车容量" 
+                  placeholder-class="weui-input__placeholder"
+              />
+          </div>
+        </div>
+        <div class="weui-cell weui-cell_active">
+          <div class="weui-cell__hd"><label class="weui-label">车辆载重</label></div>
           <div class="weui-cell__bd weui-flex">
               <input 
                   class="weui-input" 
@@ -52,6 +63,11 @@
               <span class="weui-select">{{array0[index]}}</span>
             </picker>
           </div>
+        </div>
+
+        <div class="weui-cell weui-cell_active ">
+          <div class="weui-cell__hd"><label class="weui-label">图片上传</label></div>
+          <upload width="120rpx" height="120rpx" max="6" @choosed="choosed" ></upload>
         </div>
         <div><button class="weui-btn_cell weui-btn_cell-primary">登记</button></div>
       </div>
@@ -111,9 +127,9 @@
 
 <script>
 import Swiper from "@/components/swiper";
-
+import Upload from "@/components/upload"
 export default {
-  components: { Swiper },
+  components: { Swiper,Upload },
   data(){
     return {
       array0:['货车支持冷藏','货车不支持冷藏'],
@@ -196,7 +212,7 @@ export default {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  position: fixed;
+  position: absolute;
   z-index: 500;
   height: 50px;
   width: 100%;
